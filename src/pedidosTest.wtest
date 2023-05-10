@@ -1,0 +1,20 @@
+import dependencias.*
+import rodados.*
+import pedidos.*
+
+describe "testeo de pedidos" {
+	var cachito = new Corsa(color="rojo")
+	const pedido1 = new Pedido(cantPasajeros=4,distancia=960,tiempoMax=8,coloresIncompatibles=#{"azul","negro"})
+	
+	test "pedido1 puede ser satisfecho por cachito" {
+		assert.that(pedido1.puedeSatisfacer(cachito))
+	}
+	test "agrego rooj como impcompatible" {
+		pedido1.agregarColoresIncompatibles("rojo")
+		assert.notThat(pedido1.puedeSatisfacer(cachito))
+	}
+	test "si el tiempo baja a 6 horas" {
+		pedido1.tiempoMax(6)
+		assert.notThat(pedido1.puedeSatisfacer(cachito))
+	}
+}

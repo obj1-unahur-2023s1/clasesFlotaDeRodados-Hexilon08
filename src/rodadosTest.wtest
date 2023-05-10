@@ -1,0 +1,16 @@
+import rodados.*
+
+describe "Primera prueba de test de rodados" {
+	const corsa1 = new Corsa(color="rojo")
+	const corsa2 = new Corsa(color="negro")
+	const kwidCon = new Kwid(tieneAdicional=true)
+	const kwidSin = new Kwid()
+	
+	method initialize() {
+		
+	}
+	
+	test "test general del corsa" {
+		assert.equals(30, corsa1.peso())
+	}
+}
